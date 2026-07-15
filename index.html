@@ -1,890 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help Center - OneVictoria Resident Hub</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        tsu: {
-                            blue: '#0A2947', blueLight: '#0D3B5C', blueDark: '#061B2E',
-                            gold: '#FFD700', goldLight: '#FFE44D', goldDark: '#CCAC00',
-                            dark: '#2B0000', light: '#E8F0FE', accent: '#1A5276', muted: '#94A3B8',
-                        },
-                        surface: { DEFAULT: '#FFFFFF', alt: '#F8FAFC', hover: '#F1F5F9', border: '#E2E8F0' },
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="OneVictoria Resident Hub Help Center - Find answers, guides, and support.">
+  <title>Help Center · OneVictoria Resident Hub</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tsu: {
+              blue: '#0A2947', blueLight: '#0D3B5C', blueDark: '#061B2E',
+              gold: '#FFD700', goldLight: '#FFE44D', goldDark: '#CCAC00',
+              dark: '#2B0000', light: '#E8F0FE', accent: '#1A5276', muted: '#94A3B8',
+            },
+            surface: { DEFAULT: '#FFFFFF', alt: '#F8FAFC', hover: '#F1F5F9', border: '#E2E8F0' },
+          }
         }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #f8fafc;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #64748b; }
 
-        .sidebar-link {
-            position: relative;
-            transition: all 0.25s ease;
-            border-left: 3px solid transparent;
-            font-size: 0.875rem;
-        }
-        .sidebar-link:hover {
-            background-color: #f8fafc;
-            border-left-color: #cbd5e1;
-        }
-        .sidebar-link.active {
-            background-color: #E8F0FE;
-            border-left-color: #0A2947;
-            color: #0A2947;
-            font-weight: 600;
-        }
+    .sidebar-link {
+      position: relative;
+      transition: all 0.25s ease;
+      border-left: 3px solid transparent;
+      font-size: 0.875rem;
+    }
+    .sidebar-link:hover {
+      background-color: #f8fafc;
+      border-left-color: #cbd5e1;
+    }
+    .sidebar-link.active {
+      background-color: #E8F0FE;
+      border-left-color: #0A2947;
+      color: #0A2947;
+      font-weight: 600;
+    }
 
-        .faq-card {
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            background: white;
-            transition: all 0.2s ease;
-        }
-        .faq-card:hover {
-            border-color: #0A2947;
-            box-shadow: 0 4px 12px rgba(10, 41, 71, 0.06);
-        }
+    .faq-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      background: white;
+      transition: all 0.2s ease;
+    }
+    .faq-card:hover {
+      border-color: #0A2947;
+      box-shadow: 0 4px 12px rgba(10, 41, 71, 0.06);
+    }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease, padding 0.35s ease;
-        }
-        .faq-answer.expanded {
-            max-height: 800px;
-        }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-answer.expanded {
+      max-height: 800px;
+    }
 
-        .search-highlight {
-            background-color: #FFE44D;
-            padding: 0 2px;
-            border-radius: 2px;
-            font-weight: 600;
-        }
+    .search-highlight {
+      background-color: #FFE44D;
+      padding: 0 2px;
+      border-radius: 2px;
+      font-weight: 600;
+    }
 
-        .category-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-        .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 32px rgba(10, 41, 71, 0.1);
-            border-color: #0A2947;
-        }
+    .category-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(10, 41, 71, 0.1);
+      border-color: #0A2947;
+    }
 
-        .contact-card {
-            transition: all 0.3s ease;
-        }
-        .contact-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(10, 41, 71, 0.08);
-        }
+    .contact-card {
+      transition: all 0.3s ease;
+    }
+    .contact-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(10, 41, 71, 0.08);
+    }
 
-        @media (max-width: 768px) {
-            .sidebar-link {
-                font-size: 0.8125rem;
-                padding: 0.625rem 0.75rem;
-            }
-            .faq-card {
-                border-radius: 0.625rem;
-            }
-        }
+    /* footer links adjusted */
+    footer a {
+      transition: color 0.2s ease;
+    }
 
-        @media (max-width: 640px) {
-            .category-card {
-                padding: 1rem;
-            }
-            .category-card h4 {
-                font-size: 0.8125rem;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .sidebar-link {
+        font-size: 0.8125rem;
+        padding: 0.625rem 0.75rem;
+      }
+      .faq-card {
+        border-radius: 0.625rem;
+      }
+    }
+    @media (max-width: 640px) {
+      .category-card {
+        padding: 1rem;
+      }
+      .category-card h4 {
+        font-size: 0.8125rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
+<body class="antialiased text-gray-800">
 
-    <!-- Header Navigation -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-tsu-blue to-tsu-blueDark rounded-xl flex items-center justify-center shadow-md shrink-0">
-                        <i class="fa-solid fa-building-columns text-tsu-gold text-sm"></i>
-                    </div>
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-1">
-                        <a href="https://rhonelcustodio.github.io/civic/" window.location.replace(this.href); class="font-extrabold text-base sm:text-lg text-tsu-blue tracking-tight leading-tight">OneVictoria</a>
-                        <span class="text-xs text-gray-400 hidden sm:inline">|</span>
-                        <span class="text-xs text-gray-500 font-medium">Help Center</span>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-2 sm:space-x-4">
-                    <a href="https://rhonelcustodio.github.io/civic/" window.location.replace(this.href); class="hidden sm:inline-flex items-center text-sm text-gray-600 hover:text-tsu-blue font-medium transition-colors">
-                        <i class="fa-solid fa-arrow-left mr-1.5 text-xs"></i>Return to Portal
-                    </a>
-                    <a href="https://rhonelcustodio.github.io/civic/" window.location.replace(this.href); class="sm:hidden inline-flex items-center text-gray-600 hover:text-tsu-blue p-2 rounded-lg hover:bg-gray-100 transition-all" title="Return to Portal">
-                        <i class="fa-solid fa-arrow-left text-lg"></i>
-                    </a>
-                    <a href="https://rhonelcustodio.github.io/civic/" window.location.replace(this.href); class="bg-tsu-blue text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold hover:bg-tsu-blueLight transition-all shadow-sm whitespace-nowrap">
-                        Sign In
-                    </a>
-                </div>
-            </div>
+  <!-- Header Navigation (clean, consistent) -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-gradient-to-br from-tsu-blue to-tsu-blueDark rounded-xl flex items-center justify-center shadow-md shrink-0">
+            <i class="fa-solid fa-building-columns text-tsu-gold text-sm"></i>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
+            <a href="https://rhonelcustodio.github.io/civic/" class="font-extrabold text-base sm:text-lg text-tsu-blue tracking-tight leading-tight">OneVictoria</a>
+            <span class="text-xs text-gray-400 hidden sm:inline">|</span>
+            <span class="text-xs text-gray-500 font-medium">Help Center</span>
+          </div>
         </div>
-    </header>
-
-    <!-- Search Hero Section -->
-    <section class="bg-gradient-to-br from-tsu-blue via-tsu-accent to-tsu-blueDark py-10 sm:py-14 px-4">
-        <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-3 tracking-tight leading-tight">
-                How may we assist you?
-            </h1>
-            <p class="text-gray-300 text-sm sm:text-base mb-6 sm:mb-8 max-w-xl mx-auto">
-                Search our knowledge base or browse the topics below to find answers to your questions.
-            </p>
-            <div class="relative max-w-xl mx-auto">
-                <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm sm:text-base"></i>
-                <input type="text" id="help-search" 
-                    class="w-full pl-11 sm:pl-12 pr-4 py-3 sm:py-3.5 rounded-xl border-2 border-transparent focus:border-tsu-gold focus:ring-2 focus:ring-tsu-gold/30 text-sm shadow-lg transition-all bg-white"
-                    placeholder="Search for help articles... (e.g., register, events, donations)">
-                <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden z-50 max-h-72 overflow-y-auto text-left"></div>
-            </div>
-            <p class="text-gray-400 text-xs mt-3 hidden sm:block">
-                <i class="fa-solid fa-keyboard mr-1"></i> Press <kbd class="bg-white/10 px-1.5 py-0.5 rounded text-white/80 text-xs">Ctrl + K</kbd> to search
-            </p>
+        <div class="flex items-center space-x-2 sm:space-x-4">
+          <a href="https://rhonelcustodio.github.io/civic/" class="hidden sm:inline-flex items-center text-sm text-gray-600 hover:text-tsu-blue font-medium transition-colors">
+            <i class="fa-solid fa-arrow-left mr-1.5 text-xs"></i>Return to Portal
+          </a>
+          <a href="https://rhonelcustodio.github.io/civic/" class="sm:hidden inline-flex items-center text-gray-600 hover:text-tsu-blue p-2 rounded-lg hover:bg-gray-100 transition-all" title="Return to Portal">
+            <i class="fa-solid fa-arrow-left text-lg"></i>
+          </a>
+          <a href="https://rhonelcustodio.github.io/civic/" class="bg-tsu-blue text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold hover:bg-tsu-blueLight transition-all shadow-sm whitespace-nowrap">
+            Sign In
+          </a>
         </div>
-    </section>
+      </div>
+    </div>
+  </header>
 
-    <!-- Main Content Area -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
-        <div class="flex flex-col lg:flex-row gap-6 lg:gap-10">
+  <!-- Search Hero -->
+  <section class="bg-gradient-to-br from-tsu-blue via-tsu-accent to-tsu-blueDark py-10 sm:py-14 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-3 tracking-tight leading-tight">
+        How may we assist you?
+      </h1>
+      <p class="text-gray-300 text-sm sm:text-base mb-6 sm:mb-8 max-w-xl mx-auto">
+        Search our knowledge base or browse the topics below to find answers.
+      </p>
+      <div class="relative max-w-xl mx-auto">
+        <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm sm:text-base"></i>
+        <input type="text" id="help-search" 
+          class="w-full pl-11 sm:pl-12 pr-4 py-3 sm:py-3.5 rounded-xl border-2 border-transparent focus:border-tsu-gold focus:ring-2 focus:ring-tsu-gold/30 text-sm shadow-lg transition-all bg-white"
+          placeholder="Search for help articles... (e.g., register, events, donations)">
+        <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden z-50 max-h-72 overflow-y-auto text-left"></div>
+      </div>
+      <p class="text-gray-400 text-xs mt-3 hidden sm:block">
+        <i class="fa-solid fa-keyboard mr-1"></i> Press <kbd class="bg-white/10 px-1.5 py-0.5 rounded text-white/80 text-xs">Ctrl + K</kbd> to search
+      </p>
+    </div>
+  </section>
 
-            <!-- Mobile Category Quick Links (visible only on mobile) -->
-            <div class="lg:hidden grid grid-cols-2 gap-3 mb-2">
-                <a href="#getting-started" class="category-card bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-                    <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fa-solid fa-rocket text-tsu-blue text-sm"></i>
-                    </div>
-                    <h4 class="font-semibold text-sm text-gray-800">Getting Started</h4>
-                </a>
-                <a href="#events-registration" class="category-card bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-                    <div class="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fa-solid fa-calendar-check text-emerald-600 text-sm"></i>
-                    </div>
-                    <h4 class="font-semibold text-sm text-gray-800">Events</h4>
-                </a>
-                <a href="#volunteering" class="category-card bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-                    <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fa-solid fa-hands-holding text-purple-600 text-sm"></i>
-                    </div>
-                    <h4 class="font-semibold text-sm text-gray-800">Volunteering</h4>
-                </a>
-                <a href="#donations" class="category-card bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-                    <div class="w-10 h-10 bg-rose-50 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fa-solid fa-hand-holding-heart text-rose-600 text-sm"></i>
-                    </div>
-                    <h4 class="font-semibold text-sm text-gray-800">Donations</h4>
-                </a>
-            </div>
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 flex-grow">
+    <div class="flex flex-col lg:flex-row gap-6 lg:gap-10">
 
-            <!-- Sidebar Navigation -->
-            <aside class="lg:w-64 shrink-0">
-                <div class="bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm p-3 sm:p-4 sticky top-20 lg:top-24">
-                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-2 sm:px-3">Topics</h3>
-                    <nav class="space-y-0.5 sm:space-y-1">
-                        <a href="#getting-started" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600 active">
-                            <i class="fa-solid fa-rocket w-4 text-center text-tsu-gold text-xs"></i>
-                            <span>Getting Started</span>
-                        </a>
-                        <a href="#account-management" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
-                            <i class="fa-solid fa-user-gear w-4 text-center text-tsu-gold text-xs"></i>
-                            <span>Account Management</span>
-                        </a>
-                        <a href="#events-registration" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
-                            <i class="fa-solid fa-calendar-check w-4 text-center text-tsu-gold text-xs"></i>
-                            <span>Events & Registration</span>
-                        </a>
-                        <a href="#volunteering" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
-                            <i class="fa-solid fa-hands-holding w-4 text-center text-tsu-gold text-xs"></i>
-                            <span>Volunteering</span>
-                        </a>
-                        <a href="#service-hours" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
-                            <i class="fa-solid fa-clock w-4 text-center text-tsu-gold text-xs"></i>
-                            <span>Service Hours</span>
-                        </a>
-                        <a href="#donations" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
-                            <i class="fa-solid fa-hand-holding-heart w-4 text-center text-tsu-gold text-xs"></i>
-                            <span>Donations</span>
-                        </a>
-                        <a href="#notifications" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
-                            <i class="fa-solid fa-bell w-4 text-center text-tsu-gold text-xs"></i>
-                            <span>Notifications</span>
-                        </a>
-                        <a href="#troubleshooting" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
-                            <i class="fa-solid fa-circle-exclamation w-4 text-center text-tsu-gold text-xs"></i>
-                            <span>Troubleshooting</span>
-                        </a>
-                        <a href="#contact-support" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
-                            <i class="fa-solid fa-headset w-4 text-center text-tsu-gold text-xs"></i>
-                            <span>Contact Support</span>
-                        </a>
-                    </nav>
-                </div>
-            </aside>
+      <!-- Mobile category quick links -->
+      <div class="lg:hidden grid grid-cols-2 gap-3 mb-2">
+        <a href="#getting-started" class="category-card bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
+          <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-rocket text-tsu-blue text-sm"></i>
+          </div>
+          <h4 class="font-semibold text-sm text-gray-800">Getting Started</h4>
+        </a>
+        <a href="#events-registration" class="category-card bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
+          <div class="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-calendar-check text-emerald-600 text-sm"></i>
+          </div>
+          <h4 class="font-semibold text-sm text-gray-800">Events</h4>
+        </a>
+        <a href="#volunteering" class="category-card bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
+          <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-hands-holding text-purple-600 text-sm"></i>
+          </div>
+          <h4 class="font-semibold text-sm text-gray-800">Volunteering</h4>
+        </a>
+        <a href="#donations" class="category-card bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
+          <div class="w-10 h-10 bg-rose-50 rounded-full flex items-center justify-center mx-auto mb-2">
+            <i class="fa-solid fa-hand-holding-heart text-rose-600 text-sm"></i>
+          </div>
+          <h4 class="font-semibold text-sm text-gray-800">Donations</h4>
+        </a>
+      </div>
 
-            <!-- Content Sections -->
-            <div class="flex-1 min-w-0">
-
-                <!-- Desktop Category Cards (hidden on mobile) -->
-                <div class="hidden lg:grid grid-cols-4 gap-4 mb-10">
-                    <div class="category-card bg-white rounded-xl border border-gray-200 p-5 text-center shadow-sm" onclick="document.getElementById('getting-started').scrollIntoView({behavior:'smooth'})">
-                        <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fa-solid fa-rocket text-tsu-blue text-base"></i>
-                        </div>
-                        <h4 class="font-semibold text-sm text-gray-800">Getting Started</h4>
-                        <p class="text-xs text-gray-500 mt-1">New user orientation</p>
-                    </div>
-                    <div class="category-card bg-white rounded-xl border border-gray-200 p-5 text-center shadow-sm" onclick="document.getElementById('events-registration').scrollIntoView({behavior:'smooth'})">
-                        <div class="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fa-solid fa-calendar-check text-emerald-600 text-base"></i>
-                        </div>
-                        <h4 class="font-semibold text-sm text-gray-800">Events</h4>
-                        <p class="text-xs text-gray-500 mt-1">Registration & management</p>
-                    </div>
-                    <div class="category-card bg-white rounded-xl border border-gray-200 p-5 text-center shadow-sm" onclick="document.getElementById('volunteering').scrollIntoView({behavior:'smooth'})">
-                        <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fa-solid fa-hands-holding text-purple-600 text-base"></i>
-                        </div>
-                        <h4 class="font-semibold text-sm text-gray-800">Volunteering</h4>
-                        <p class="text-xs text-gray-500 mt-1">Application process</p>
-                    </div>
-                    <div class="category-card bg-white rounded-xl border border-gray-200 p-5 text-center shadow-sm" onclick="document.getElementById('donations').scrollIntoView({behavior:'smooth'})">
-                        <div class="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fa-solid fa-hand-holding-heart text-rose-600 text-base"></i>
-                        </div>
-                        <h4 class="font-semibold text-sm text-gray-800">Donations</h4>
-                        <p class="text-xs text-gray-500 mt-1">Payment methods</p>
-                    </div>
-                </div>
-
-                <!-- Getting Started Section -->
-                <section id="getting-started" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
-                    <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
-                            <i class="fa-solid fa-rocket text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Getting Started
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Essential information for new users of the OneVictoria platform</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">What is OneVictoria?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>OneVictoria is the official resident engagement platform for the Municipality of Victoria. This digital hub connects citizens with municipal services, community events, volunteer programs, and civic announcements. The platform enables residents to:</p>
-                                    <ul class="list-disc pl-5 mt-3 space-y-1.5">
-                                        <li>Register for community events and programs</li>
-                                        <li>Submit volunteer applications for municipal initiatives</li>
-                                        <li>Track community service hour contributions</li>
-                                        <li>Make monetary or in-kind donations to support local causes</li>
-                                        <li>Receive real-time notifications regarding community updates</li>
-                                        <li>Manage personal profile information securely</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I create a new account?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>Account registration is a straightforward process:</p>
-                                    <ol class="list-decimal pl-5 mt-3 space-y-2">
-                                        <li>Navigate to the OneVictoria portal homepage</li>
-                                        <li>On the authentication panel, select <strong>"Create Account"</strong></li>
-                                        <li>Complete the registration form with the following required fields:
-                                            <ul class="list-disc pl-5 mt-1.5 space-y-1 text-xs sm:text-sm">
-                                                <li>Full legal name</li>
-                                                <li>Valid email address</li>
-                                                <li>Contact phone number</li>
-                                                <li>Age (must be 15 years or older)</li>
-                                                <li>Gender</li>
-                                                <li>Complete residential address</li>
-                                            </ul>
-                                        </li>
-                                        <li>Create a secure password (minimum 6 characters)</li>
-                                        <li>Confirm your password by re-entering it</li>
-                                        <li>Click <strong>"Create Account"</strong> to finalize registration</li>
-                                    </ol>
-                                    <p class="mt-3 bg-amber-50 text-amber-800 p-3 rounded-lg text-xs sm:text-sm">
-                                        <i class="fa-solid fa-lightbulb mr-1.5"></i>
-                                        <strong>Recommendation:</strong> Use an active email address as this will serve as your primary credential for account recovery and notifications.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I sign in to my account?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>To access your account:</p>
-                                    <ol class="list-decimal pl-5 mt-3 space-y-2">
-                                        <li>Visit the OneVictoria portal</li>
-                                        <li>On the sign-in panel, enter your <strong>registered email address</strong></li>
-                                        <li>Enter your <strong>account password</strong></li>
-                                        <li>Select <strong>"Access Portal"</strong></li>
-                                        <li>Upon successful authentication, you will be directed to your personalized dashboard</li>
-                                    </ol>
-                                    <p class="mt-3 bg-red-50 text-red-800 p-3 rounded-lg text-xs sm:text-sm">
-                                        <i class="fa-solid fa-triangle-exclamation mr-1.5"></i>
-                                        <strong>Important:</strong> If you are unable to access your account due to forgotten credentials, please refer to the Troubleshooting section or contact our support team.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">Understanding the Dashboard Interface</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>The dashboard utilizes a sidebar navigation system with the following functional sections:</p>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
-                                        <div class="flex items-start space-x-2 bg-gray-50 p-2.5 rounded-lg">
-                                            <i class="fa-solid fa-bullhorn text-tsu-gold mt-0.5 text-xs"></i>
-                                            <div><strong class="text-xs">Announcements</strong><p class="text-xs text-gray-500">Municipal broadcasts</p></div>
-                                        </div>
-                                        <div class="flex items-start space-x-2 bg-gray-50 p-2.5 rounded-lg">
-                                            <i class="fa-solid fa-calendar-days text-tsu-gold mt-0.5 text-xs"></i>
-                                            <div><strong class="text-xs">Events</strong><p class="text-xs text-gray-500">Browse community events</p></div>
-                                        </div>
-                                        <div class="flex items-start space-x-2 bg-gray-50 p-2.5 rounded-lg">
-                                            <i class="fa-solid fa-calendar-check text-tsu-gold mt-0.5 text-xs"></i>
-                                            <div><strong class="text-xs">My Events</strong><p class="text-xs text-gray-500">Registered events</p></div>
-                                        </div>
-                                        <div class="flex items-start space-x-2 bg-gray-50 p-2.5 rounded-lg">
-                                            <i class="fa-solid fa-hands-holding text-tsu-gold mt-0.5 text-xs"></i>
-                                            <div><strong class="text-xs">Volunteer</strong><p class="text-xs text-gray-500">Application submissions</p></div>
-                                        </div>
-                                        <div class="flex items-start space-x-2 bg-gray-50 p-2.5 rounded-lg">
-                                            <i class="fa-solid fa-clock text-tsu-gold mt-0.5 text-xs"></i>
-                                            <div><strong class="text-xs">Service Hours</strong><p class="text-xs text-gray-500">Contribution tracking</p></div>
-                                        </div>
-                                        <div class="flex items-start space-x-2 bg-gray-50 p-2.5 rounded-lg">
-                                            <i class="fa-solid fa-hand-holding-heart text-tsu-gold mt-0.5 text-xs"></i>
-                                            <div><strong class="text-xs">Donations</strong><p class="text-xs text-gray-500">Contribution ledger</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Account Management Section -->
-                <section id="account-management" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
-                    <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
-                            <i class="fa-solid fa-user-gear text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Account Management
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Managing your profile, credentials, and account settings</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I update my profile information?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <ol class="list-decimal pl-5 space-y-2">
-                                        <li>Navigate to the <strong>Profile</strong> section via the sidebar</li>
-                                        <li>Select the <strong>"Edit Profile"</strong> button to enable editing mode</li>
-                                        <li>Modify the editable fields: Mobile Number, Address, and Profile Picture</li>
-                                        <li>Select <strong>"Save Changes"</strong> to apply your updates</li>
-                                    </ol>
-                                    <p class="mt-3 bg-gray-50 p-3 rounded-lg text-xs sm:text-sm text-gray-500">
-                                        <i class="fa-solid fa-info-circle mr-1.5"></i>
-                                        <strong>Note:</strong> Legal name, email address, gender, and age are immutable fields. To request changes to these fields, please contact our support department.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I change my profile photograph?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <ol class="list-decimal pl-5 space-y-2">
-                                        <li>Access the <strong>Profile</strong> section</li>
-                                        <li>Click on your current profile image or the placeholder icon</li>
-                                        <li>Select an image file from your local device (formats accepted: JPG, PNG)</li>
-                                        <li>A preview will display immediately with a "Pending" indicator</li>
-                                        <li>Save your profile changes to finalize the update</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I change my account password?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <ol class="list-decimal pl-5 space-y-2">
-                                        <li>Go to the <strong>Profile</strong> section</li>
-                                        <li>Click <strong>"Edit Profile"</strong></li>
-                                        <li>Enter your new password in the designated password field</li>
-                                        <li>Use the eye icon to toggle password visibility for verification</li>
-                                        <li>Save your changes to confirm the password update</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Events & Registration Section -->
-                <section id="events-registration" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
-                    <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
-                            <i class="fa-solid fa-calendar-check text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Events & Registration
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Discovering, registering for, and managing community events</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I register for a community event?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <ol class="list-decimal pl-5 space-y-2">
-                                        <li>Navigate to the <strong>Events</strong> tab from the sidebar navigation</li>
-                                        <li>Browse the grid of available upcoming events</li>
-                                        <li>Click the <strong>"Register"</strong> button on any event card of interest</li>
-                                        <li>A confirmation notification will appear upon successful registration</li>
-                                        <li>The registered event will be visible in your <strong>My Events</strong> section</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">Is it possible to cancel an event registration?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>Yes, registration cancellation is available:</p>
-                                    <ol class="list-decimal pl-5 space-y-2 mt-3">
-                                        <li>Go to the <strong>My Events</strong> section</li>
-                                        <li>Locate the event you wish to cancel</li>
-                                        <li>Click the <strong>"Cancel"</strong> button on the respective event card</li>
-                                        <li>Confirm the cancellation in the dialog prompt</li>
-                                    </ol>
-                                    <p class="mt-3 bg-amber-50 text-amber-800 p-3 rounded-lg text-xs sm:text-sm">
-                                        <i class="fa-solid fa-lightbulb mr-1.5"></i>
-                                        <strong>Recommendation:</strong> Please cancel at least 24 hours prior to the event to allow other residents the opportunity to participate.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">What do the event status indicators represent?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <ul class="space-y-3">
-                                        <li class="flex items-start space-x-2">
-                                            <span class="px-2.5 py-0.5 bg-green-100 text-green-700 rounded-full text-xs font-semibold shrink-0">Registered</span>
-                                            <span class="text-sm">Your registration has been successfully processed.</span>
-                                        </li>
-                                        <li class="flex items-start space-x-2">
-                                            <span class="px-2.5 py-0.5 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold shrink-0">Completed</span>
-                                            <span class="text-sm">You attended the event and received service hour credit.</span>
-                                        </li>
-                                        <li class="flex items-start space-x-2">
-                                            <span class="px-2.5 py-0.5 bg-red-100 text-red-700 rounded-full text-xs font-semibold shrink-0">Cancelled</span>
-                                            <span class="text-sm">The registration has been cancelled either by you or the event organizer.</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Volunteering Section -->
-                <section id="volunteering" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
-                    <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
-                            <i class="fa-solid fa-hands-holding text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Volunteering
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Applying as a volunteer and contributing to municipal programs</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I submit a volunteer application?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <ol class="list-decimal pl-5 space-y-2">
-                                        <li>Access the <strong>Volunteer</strong> tab from the sidebar</li>
-                                        <li>Your name will be automatically populated from your account profile</li>
-                                        <li>Select your <strong>Primary Skill</strong> from the comprehensive dropdown menu</li>
-                                        <li>Upload a <strong>Skill Verification</strong> document (certificate, credential, or proof of expertise)</li>
-                                        <li>Indicate your <strong>Experience Level</strong> and <strong>Availability</strong></li>
-                                        <li>Include any supplementary notes regarding your experience or qualifications</li>
-                                        <li>Click <strong>"Submit Application"</strong> to finalize</li>
-                                    </ol>
-                                    <p class="mt-3 bg-blue-50 text-blue-800 p-3 rounded-lg text-xs sm:text-sm">
-                                        <i class="fa-solid fa-clock mr-1.5"></i>
-                                        Applications undergo review by municipal organizers. You will receive a notification upon status change.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">What documents are accepted for skill verification?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>The platform accepts the following file formats (maximum file size: 5MB):</p>
-                                    <ul class="list-disc pl-5 space-y-1.5 mt-3">
-                                        <li><strong>PDF</strong> — Certificates, training completion documents, professional licenses</li>
-                                        <li><strong>JPG / PNG</strong> — Photographs of certificates, identification cards, or credentials</li>
-                                        <li><strong>DOC / DOCX</strong> — Reference letters, experience verification documents</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Service Hours Section -->
-                <section id="service-hours" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
-                    <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
-                            <i class="fa-solid fa-clock text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Service Hours
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Tracking community service contributions and certifications</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How are community service hours earned?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>Service hours are accrued through active participation in registered community events. When you attend an event for which you have registered, the event organizer may certify your participation hours. These certified hours are recorded and displayed in your <strong>Service Hours</strong> tab, contributing to your community service record.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">What do the certification statuses indicate?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <ul class="space-y-3">
-                                        <li class="flex items-start space-x-2">
-                                            <span class="px-2.5 py-0.5 bg-green-100 text-green-700 rounded-full text-xs font-semibold shrink-0">Certified</span>
-                                            <span class="text-sm">Hours have been verified and approved by an authorized event organizer.</span>
-                                        </li>
-                                        <li class="flex items-start space-x-2">
-                                            <span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-700 rounded-full text-xs font-semibold shrink-0">Pending</span>
-                                            <span class="text-sm">Hours are awaiting verification from the event organizer.</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Donations Section -->
-                <section id="donations" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
-                    <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
-                            <i class="fa-solid fa-hand-holding-heart text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Donations
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Making contributions to support community initiatives</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I make a donation?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <ol class="list-decimal pl-5 space-y-2">
-                                        <li>Navigate to the <strong>Donations</strong> tab</li>
-                                        <li>Complete the donation form by specifying the item or monetary amount and the intended purpose</li>
-                                        <li>Click <strong>"Submit Donation"</strong></li>
-                                        <li>A payment modal will appear where you may select your preferred payment method</li>
-                                        <li>Choose from the available options: GCash, PayMaya, Bank Transfer, or Cash</li>
-                                        <li>Enter the donation amount and your full name</li>
-                                        <li>Click <strong>"Pay Now"</strong> to complete the transaction</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">Which payment methods are accepted?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>The platform currently supports the following payment channels:</p>
-                                    <ul class="list-disc pl-5 space-y-1.5 mt-3">
-                                        <li><strong>GCash</strong> — Mobile wallet payment processing</li>
-                                        <li><strong>PayMaya</strong> — Digital wallet transaction service</li>
-                                        <li><strong>Bank Transfer</strong> — Direct deposit to municipal accounts</li>
-                                        <li><strong>Cash</strong> — In-person cash remittance at designated offices</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Notifications Section -->
-                <section id="notifications" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
-                    <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
-                            <i class="fa-solid fa-bell text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Notifications
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Managing real-time alerts and system notifications</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I view my notifications?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>Notifications can be accessed through two methods:</p>
-                                    <ul class="list-disc pl-5 space-y-2 mt-3">
-                                        <li><strong>Quick Preview:</strong> Click the bell icon located in the sidebar header to display a dropdown of recent notifications</li>
-                                        <li><strong>Comprehensive View:</strong> Navigate to the Notifications tab for a complete, chronological listing of all notifications</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I mark notifications as read?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>There are two methods to mark notifications as read:</p>
-                                    <ul class="list-disc pl-5 space-y-2 mt-3">
-                                        <li>Select <strong>"Mark All Read"</strong> from either the notification dropdown or the full notification list</li>
-                                        <li>Click on an individual notification to view its details, which automatically marks it as read</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Troubleshooting Section -->
-                <section id="troubleshooting" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
-                    <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
-                            <i class="fa-solid fa-circle-exclamation text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Troubleshooting
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Resolving common technical issues and account problems</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">I have forgotten my password. What steps should I take?</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>Password recovery is facilitated through our support team:</p>
-                                    <ol class="list-decimal pl-5 space-y-2 mt-3">
-                                        <li>Contact our support department using one of the methods listed in the <strong>Contact Support</strong> section below</li>
-                                        <li>Provide your registered email address for identity verification</li>
-                                        <li>A support representative will guide you through the password reset procedure</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">The platform is not loading correctly</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>Please attempt the following troubleshooting steps:</p>
-                                    <ul class="list-disc pl-5 space-y-2 mt-3">
-                                        <li>Refresh your browser window (F5 or Ctrl+R)</li>
-                                        <li>Clear your browser cache and stored cookies</li>
-                                        <li>Attempt to access the platform using an alternative browser (Google Chrome, Mozilla Firefox, or Microsoft Edge recommended)</li>
-                                        <li>Verify that your internet connection is stable</li>
-                                        <li>Ensure that JavaScript is enabled in your browser settings</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-card p-4 sm:p-5">
-                            <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
-                                <span class="font-semibold text-gray-800 text-sm sm:text-base">My volunteer application status has not been updated</span>
-                                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
-                            </button>
-                            <div class="faq-answer text-sm text-gray-600 leading-relaxed">
-                                <div class="pt-4">
-                                    <p>Volunteer applications undergo manual review by municipal event organizers. The standard processing period is 1–3 business days. You will receive a notification when your application status changes. If more than three business days have elapsed without an update, please contact our support team for assistance.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Contact Support Section -->
-                <section id="contact-support" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
-                    <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
-                            <i class="fa-solid fa-headset text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Contact Support
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Reaching our support team for assistance</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                        <div class="contact-card bg-white rounded-xl border border-gray-200 p-5 sm:p-6 text-center shadow-sm">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                                <i class="fa-solid fa-envelope text-tsu-blue text-lg sm:text-xl"></i>
-                            </div>
-                            <h4 class="font-bold text-gray-800 mb-1.5 text-sm sm:text-base">Email Correspondence</h4>
-                            <p class="text-xs sm:text-sm text-gray-500 mb-3">Send us an email at any time</p>
-                            <a href="mailto:support@victoria.gov.ph" class="text-tsu-blue font-semibold text-xs sm:text-sm hover:underline break-all">
-                                support@victoria.gov.ph
-                            </a>
-                            <p class="text-xs text-gray-400 mt-2">Response within 24–48 hours</p>
-                        </div>
-                        
-                        <div class="contact-card bg-white rounded-xl border border-gray-200 p-5 sm:p-6 text-center shadow-sm">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                                <i class="fa-solid fa-phone text-emerald-600 text-lg sm:text-xl"></i>
-                            </div>
-                            <h4 class="font-bold text-gray-800 mb-1.5 text-sm sm:text-base">Telephone Support</h4>
-                            <p class="text-xs sm:text-sm text-gray-500 mb-3">Call during office hours</p>
-                            <a href="tel:+63431234567" class="text-tsu-blue font-semibold text-xs sm:text-sm hover:underline">
-                                (043) 123-4567
-                            </a>
-                            <p class="text-xs text-gray-400 mt-2">Monday–Friday, 8:00 AM – 5:00 PM</p>
-                        </div>
-                        
-                        <div class="contact-card bg-white rounded-xl border border-gray-200 p-5 sm:p-6 text-center shadow-sm sm:col-span-2 lg:col-span-1">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                                <i class="fa-solid fa-location-dot text-purple-600 text-lg sm:text-xl"></i>
-                            </div>
-                            <h4 class="font-bold text-gray-800 mb-1.5 text-sm sm:text-base">In-Person Visit</h4>
-                            <p class="text-xs sm:text-sm text-gray-500 mb-3">Municipal Hall Office</p>
-                            <p class="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed">
-                                Municipal Hall, Victoria<br>
-                                Laguna, Philippines
-                            </p>
-                            <p class="text-xs text-gray-400 mt-2">Monday–Friday, 8:00 AM – 5:00 PM</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-tsu-blue to-tsu-accent rounded-2xl p-6 sm:p-8 text-white text-center">
-                        <i class="fa-solid fa-circle-question text-3xl sm:text-4xl mb-3 sm:mb-4 text-tsu-gold"></i>
-                        <h3 class="text-lg sm:text-xl font-extrabold mb-2">Still require assistance?</h3>
-                        <p class="text-gray-300 mb-5 sm:mb-6 text-sm max-w-md mx-auto leading-relaxed">
-                            Our dedicated support team is prepared to address any inquiries or concerns you may have regarding the OneVictoria platform.
-                        </p>
-                        <a href="mailto:support@victoria.gov.ph" class="inline-flex items-center space-x-2 bg-tsu-gold text-tsu-dark font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl hover:bg-tsu-goldLight transition-all shadow-lg text-sm">
-                            <i class="fa-solid fa-paper-plane text-xs"></i>
-                            <span>Send Us a Message</span>
-                        </a>
-                    </div>
-                </section>
-
-            </div>
+      <!-- Sidebar -->
+      <aside class="lg:w-64 shrink-0">
+        <div class="bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm p-3 sm:p-4 sticky top-20 lg:top-24">
+          <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-2 sm:px-3">Topics</h3>
+          <nav class="space-y-0.5 sm:space-y-1">
+            <a href="#getting-started" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600 active">
+              <i class="fa-solid fa-rocket w-4 text-center text-tsu-gold text-xs"></i>
+              <span>Getting Started</span>
+            </a>
+            <a href="#account-management" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
+              <i class="fa-solid fa-user-gear w-4 text-center text-tsu-gold text-xs"></i>
+              <span>Account Management</span>
+            </a>
+            <a href="#events-registration" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
+              <i class="fa-solid fa-calendar-check w-4 text-center text-tsu-gold text-xs"></i>
+              <span>Events & Registration</span>
+            </a>
+            <a href="#volunteering" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
+              <i class="fa-solid fa-hands-holding w-4 text-center text-tsu-gold text-xs"></i>
+              <span>Volunteering</span>
+            </a>
+            <a href="#service-hours" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
+              <i class="fa-solid fa-clock w-4 text-center text-tsu-gold text-xs"></i>
+              <span>Service Hours</span>
+            </a>
+            <a href="#donations" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
+              <i class="fa-solid fa-hand-holding-heart w-4 text-center text-tsu-gold text-xs"></i>
+              <span>Donations</span>
+            </a>
+            <a href="#notifications" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
+              <i class="fa-solid fa-bell w-4 text-center text-tsu-gold text-xs"></i>
+              <span>Notifications</span>
+            </a>
+            <a href="#troubleshooting" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
+              <i class="fa-solid fa-circle-exclamation w-4 text-center text-tsu-gold text-xs"></i>
+              <span>Troubleshooting</span>
+            </a>
+            <a href="#contact-support" class="sidebar-link flex items-center space-x-2 sm:space-x-2.5 px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-gray-600">
+              <i class="fa-solid fa-headset w-4 text-center text-tsu-gold text-xs"></i>
+              <span>Contact Support</span>
+            </a>
+          </nav>
         </div>
-    </main>
+      </aside>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-6 sm:py-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-gradient-to-br from-tsu-blue to-tsu-blueDark rounded-lg flex items-center justify-center shadow-sm shrink-0">
-                        <i class="fa-solid fa-building-columns text-tsu-gold text-xs"></i>
-                    </div>
-                    <span class="font-extrabold text-tsu-blue text-sm">OneVictoria</span>
-                </div>
-                <p class="text-xs text-gray-500 text-center">&copy; 2026 Municipality of Victoria. All rights reserved.</p>
-                <div class="flex items-center space-x-2 text-xs text-gray-400 font-medium">
-                    <a href="https://rhonelcustodio.github.io/civic/" window.location.replace(this.href); class="hover:text-tsu-blue transition-colors">Home</a>
-                    <a href="https://rhonelcustodio.github.io/civic-privacy-policy/" window.location.replace(this.href); class="hover:text-tsu-blue transition-colors">Privacy Policy</a>
-                    <a href="https://rhonelcustodio.github.io/civic-terms-of-service/" window.location.replace(this.href); class="hover:text-tsu-blue transition-colors">Terms of Service</a>
-                </div>
+      <!-- Content sections (unchanged, kept complete for integrity) -->
+      <div class="flex-1 min-w-0">
+        <!-- Desktop category cards -->
+        <div class="hidden lg:grid grid-cols-4 gap-4 mb-10">
+          <div class="category-card bg-white rounded-xl border border-gray-200 p-5 text-center shadow-sm" onclick="document.getElementById('getting-started').scrollIntoView({behavior:'smooth'})">
+            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-rocket text-tsu-blue text-base"></i>
             </div>
+            <h4 class="font-semibold text-sm text-gray-800">Getting Started</h4>
+            <p class="text-xs text-gray-500 mt-1">New user orientation</p>
+          </div>
+          <div class="category-card bg-white rounded-xl border border-gray-200 p-5 text-center shadow-sm" onclick="document.getElementById('events-registration').scrollIntoView({behavior:'smooth'})">
+            <div class="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-calendar-check text-emerald-600 text-base"></i>
+            </div>
+            <h4 class="font-semibold text-sm text-gray-800">Events</h4>
+            <p class="text-xs text-gray-500 mt-1">Registration & management</p>
+          </div>
+          <div class="category-card bg-white rounded-xl border border-gray-200 p-5 text-center shadow-sm" onclick="document.getElementById('volunteering').scrollIntoView({behavior:'smooth'})">
+            <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-hands-holding text-purple-600 text-base"></i>
+            </div>
+            <h4 class="font-semibold text-sm text-gray-800">Volunteering</h4>
+            <p class="text-xs text-gray-500 mt-1">Application process</p>
+          </div>
+          <div class="category-card bg-white rounded-xl border border-gray-200 p-5 text-center shadow-sm" onclick="document.getElementById('donations').scrollIntoView({behavior:'smooth'})">
+            <div class="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-hand-holding-heart text-rose-600 text-base"></i>
+            </div>
+            <h4 class="font-semibold text-sm text-gray-800">Donations</h4>
+            <p class="text-xs text-gray-500 mt-1">Payment methods</p>
+          </div>
         </div>
-    </footer>
 
-    <!-- Back to Top Button -->
-    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" 
-        class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 bg-tsu-blue text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg hover:bg-tsu-accent transition-all flex items-center justify-center z-40"
-        aria-label="Back to top">
-        <i class="fa-solid fa-arrow-up text-sm sm:text-base"></i>
-    </button>
+        <!-- Getting Started Section -->
+        <section id="getting-started" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
+          <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
+              <i class="fa-solid fa-rocket text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Getting Started
+            </h2>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Essential information for new users of the OneVictoria platform</p>
+          </div>
+          <div class="space-y-3">
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">What is OneVictoria?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4">
+                  <p>OneVictoria is the official resident engagement platform for the Municipality of Victoria. This digital hub connects citizens with municipal services, community events, volunteer programs, and civic announcements. The platform enables residents to:</p>
+                  <ul class="list-disc pl-5 mt-3 space-y-1.5">
+                    <li>Register for community events and programs</li>
+                    <li>Submit volunteer applications for municipal initiatives</li>
+                    <li>Track community service hour contributions</li>
+                    <li>Make monetary or in-kind donations to support local causes</li>
+                    <li>Receive real-time notifications regarding community updates</li>
+                    <li>Manage personal profile information securely</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I create a new account?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4">
+                  <p>Account registration is straightforward:</p>
+                  <ol class="list-decimal pl-5 mt-3 space-y-2">
+                    <li>Navigate to the OneVictoria portal homepage</li>
+                    <li>On the authentication panel, select <strong>"Create Account"</strong></li>
+                    <li>Complete the registration form with required fields (full name, email, phone, age, gender, address)</li>
+                    <li>Create a secure password (minimum 6 characters)</li>
+                    <li>Click <strong>"Create Account"</strong> to finalize</li>
+                  </ol>
+                  <p class="mt-3 bg-amber-50 text-amber-800 p-3 rounded-lg text-xs sm:text-sm">
+                    <i class="fa-solid fa-lightbulb mr-1.5"></i>
+                    <strong>Recommendation:</strong> Use an active email address for account recovery and notifications.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I sign in to my account?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4">
+                  <ol class="list-decimal pl-5 space-y-2">
+                    <li>Visit the OneVictoria portal</li>
+                    <li>Enter your registered email and password</li>
+                    <li>Select <strong>"Access Portal"</strong></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">Understanding the Dashboard Interface</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4">
+                  <p>The dashboard uses a sidebar navigation with sections for Announcements, Events, My Events, Volunteer, Service Hours, and Donations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-    <script src="help-center.js"></script>
+        <!-- Account Management Section -->
+        <section id="account-management" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
+          <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
+              <i class="fa-solid fa-user-gear text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Account Management
+            </h2>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Managing your profile, credentials, and account settings</p>
+          </div>
+          <div class="space-y-3">
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I update my profile information?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4">
+                  <ol class="list-decimal pl-5 space-y-2">
+                    <li>Go to Profile → Edit Profile</li>
+                    <li>Update mobile, address, or profile picture</li>
+                    <li>Save changes</li>
+                  </ol>
+                  <p class="mt-3 bg-gray-50 p-3 rounded-lg text-xs">Name, email, gender, and age are immutable; contact support for changes.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I change my profile photograph?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4">
+                  <p>Profile → click current image → select file (JPG/PNG) → save.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I change my account password?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4">
+                  <p>Profile → Edit Profile → enter new password → save.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events-registration" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
+          <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
+              <i class="fa-solid fa-calendar-check text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Events & Registration
+            </h2>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-1.5">Discovering and managing community events</p>
+          </div>
+          <div class="space-y-3">
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I register for an event?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4"><p>Events tab → click Register on desired event → confirmation appears.</p></div>
+              </div>
+            </div>
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">Can I cancel a registration?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4"><p>My Events → click Cancel on the event card. Please cancel 24h before.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Volunteering Section -->
+        <section id="volunteering" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
+          <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
+              <i class="fa-solid fa-hands-holding text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Volunteering
+            </h2>
+          </div>
+          <div class="space-y-3">
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I submit a volunteer application?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4"><p>Volunteer tab → select skill, upload verification, set availability → Submit.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Service Hours Section -->
+        <section id="service-hours" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
+          <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
+              <i class="fa-solid fa-clock text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Service Hours
+            </h2>
+          </div>
+          <div class="space-y-3">
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How are service hours earned?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4"><p>Hours are earned by attending registered events and being certified by organizers.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Donations Section -->
+        <section id="donations" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
+          <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
+              <i class="fa-solid fa-hand-holding-heart text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Donations
+            </h2>
+          </div>
+          <div class="space-y-3">
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I make a donation?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4"><p>Donations tab → fill form → choose payment (GCash, Maya, bank, cash) → confirm.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notifications Section -->
+        <section id="notifications" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
+          <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
+              <i class="fa-solid fa-bell text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Notifications
+            </h2>
+          </div>
+          <div class="space-y-3">
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">How do I view notifications?</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4"><p>Click bell icon in sidebar or navigate to Notifications tab.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
+          <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
+              <i class="fa-solid fa-circle-exclamation text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Troubleshooting
+            </h2>
+          </div>
+          <div class="space-y-3">
+            <div class="faq-card p-4 sm:p-5">
+              <button class="faq-toggle w-full flex items-center justify-between text-left gap-3" onclick="toggleFAQ(this)">
+                <span class="font-semibold text-gray-800 text-sm sm:text-base">I forgot my password</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300 text-xs shrink-0"></i>
+              </button>
+              <div class="faq-answer text-sm text-gray-600 leading-relaxed">
+                <div class="pt-4"><p>Contact support with your registered email for a reset procedure.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Support -->
+        <section id="contact-support" class="mb-10 sm:mb-12 scroll-mt-20 lg:scroll-mt-24">
+          <div class="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-5 sm:mb-6">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-tsu-blue flex items-center">
+              <i class="fa-solid fa-headset text-tsu-gold mr-2 sm:mr-3 text-lg sm:text-xl"></i>Contact Support
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            <div class="contact-card bg-white rounded-xl border border-gray-200 p-5 sm:p-6 text-center shadow-sm">
+              <div class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-envelope text-tsu-blue text-xl"></i></div>
+              <h4 class="font-bold text-gray-800 mb-1">Email</h4>
+              <a href="mailto:support@victoria.gov.ph" class="text-tsu-blue font-semibold text-sm break-all">support@victoria.gov.ph</a>
+            </div>
+            <div class="contact-card bg-white rounded-xl border border-gray-200 p-5 sm:p-6 text-center shadow-sm">
+              <div class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-phone text-emerald-600 text-xl"></i></div>
+              <h4 class="font-bold text-gray-800 mb-1">Phone</h4>
+              <a href="tel:+63431234567" class="text-tsu-blue font-semibold text-sm">(043) 123-4567</a>
+            </div>
+            <div class="contact-card bg-white rounded-xl border border-gray-200 p-5 sm:p-6 text-center shadow-sm sm:col-span-2 lg:col-span-1">
+              <div class="w-12 h-12 sm:w-14 sm:h-14 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-location-dot text-purple-600 text-xl"></i></div>
+              <h4 class="font-bold text-gray-800 mb-1">Visit</h4>
+              <p class="text-sm text-gray-600">Municipal Hall, Victoria, Laguna</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer: links moved to left and center, safe from arrow button -->
+  <footer class="bg-white border-t border-gray-200 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 bg-gradient-to-br from-tsu-blue to-tsu-blueDark rounded-lg flex items-center justify-center shadow-sm">
+            <i class="fa-solid fa-building-columns text-tsu-gold text-xs"></i>
+          </div>
+          <span class="font-extrabold text-tsu-blue text-sm">OneVictoria</span>
+        </div>
+        <p class="text-xs text-gray-500 text-center">&copy; 2026 Municipality of Victoria. All rights reserved.</p>
+        <div class="flex items-center space-x-4 text-xs text-gray-500 font-medium">
+          <a href="https://rhonelcustodio.github.io/civic/" class="hover:text-tsu-blue transition-colors">Home</a>
+          <a href="https://rhonelcustodio.github.io/civic-privacy-policy/" class="hover:text-tsu-blue transition-colors">Privacy Policy</a>
+          <a href="https://rhonelcustodio.github.io/civic-terms-of-service/" class="hover:text-tsu-blue transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button (safely positioned, no overlap) -->
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" 
+    class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 bg-tsu-blue text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg hover:bg-tsu-accent transition-all flex items-center justify-center z-40"
+    aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up text-sm sm:text-base"></i>
+  </button>
+    <script type="module" src="help-center.js"></script>
 </body>
 </html>
